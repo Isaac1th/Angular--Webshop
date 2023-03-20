@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "dev": "concurrently \"ng serve\" \"nodemon server/server.js\"",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development"
@@ -20,7 +21,13 @@
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
     "@stripe/stripe-js": "^1.49.0",
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21",
     "rxjs": "~7.8.0",
+    "stripe": "^11.15.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

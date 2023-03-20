@@ -4,6 +4,8 @@ import { Cart, CartItem } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 import { loadStripe } from '@stripe/stripe-js';
 import { Subscription } from 'rxjs';
+// import * as dotenv from 'dotenv';
+// dotenv.config();
 
 @Component({
   selector: 'app-cart',
@@ -57,7 +59,10 @@ export class CartComponent implements OnInit, OnDestroy {
         items: this.cart.items,
       })
       .subscribe(async (res: any) => {
-        let stripe = await loadStripe('your token');
+        let stripe = await loadStripe(
+          'pk_test_51KmZiECvR3K38GnISYY284z2QF4fa2T1E1gfeWFbgGsMsU7KClNLnBhPr4o8m0IaSUTyQGL7r6fz4VuOvmfkof0500MkZBFrtQ'
+          // process.env.STRIPE_SECRET_KEY
+        );
         stripe?.redirectToCheckout({
           sessionId: res.id,
         });
